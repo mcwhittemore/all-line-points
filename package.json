@@ -1,0 +1,33 @@
+{
+  "name": "all-line-points",
+  "description": "Get all the points on a line that you want to get.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^4.6.3"
+  },
+  "scripts": {
+    "test": "tape test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcwhittemore/all-line-points.git"
+  },
+  "keywords": [
+    "points",
+    "lines",
+    "inbetween",
+    "point",
+    "line"
+  ],
+  "author": "Matthew Chase Whittemore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcwhittemore/all-line-points/issues"
+  },
+  "homepage": "https://github.com/mcwhittemore/all-line-points#readme"
+}
