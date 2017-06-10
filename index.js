@@ -1,4 +1,9 @@
-module.exports = function* (p1, p2, maxStep) {
+module.exports = function* (opts) {
+  var p1 = opts.points[0];
+  var p2 = opts.points[1];
+  var maxStep = opts.stride || 1;
+  var hook = opts.hook || function(n) { return n; };
+
   var dx = p2[0] - p1[0];
   var dy = p2[1] - p1[1];
   

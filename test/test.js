@@ -4,7 +4,11 @@ var alp = require('../');
 
 tape('test low to high for x and y', function(assert) {
   var result = [];
-  for (var p of alp([0, 0], [10, 10], 1)) {
+  var opts = {
+    points: [[0,0], [10,10]],
+    stride: 1
+  };
+  for (var p of alp(opts)) {
     result.push(p.join('|'));
   }
   result = result.join(',');
@@ -15,7 +19,11 @@ tape('test low to high for x and y', function(assert) {
 
 tape('low to high for y, high to low for x', function(assert) {
   var result = [];
-  for (var p of alp([10, 0], [0, 10], 1)) {
+  var opts = {
+    points: [[10, 0], [0, 10]],
+    stride: 1
+  };
+  for (var p of alp(opts)) {
     result.push(p.join('|'));
   }
   result = result.join(',');
@@ -25,7 +33,11 @@ tape('low to high for y, high to low for x', function(assert) {
 
 tape('low to high for y, no more for x', function(assert) {
   var result = [];
-  for (var p of alp([10, 0], [10, 10], 1)) {
+  var opts = {
+    points: [[10, 0], [10, 10]],
+    stride: 1
+  };
+  for (var p of alp(opts)) {
     result.push(p.join('|'));
   }
   result = result.join(',');
@@ -35,7 +47,11 @@ tape('low to high for y, no more for x', function(assert) {
 
 tape('low to high for x, no more for y', function(assert) {
   var result = [];
-  for (var p of alp([0, 10], [10, 10], 1)) {
+  var opts = {
+    points: [[0, 10], [10, 10]],
+    stride: 1
+  };
+  for (var p of alp(opts)) {
     result.push(p.join('|'));
   }
   result = result.join(',');
@@ -45,7 +61,11 @@ tape('low to high for x, no more for y', function(assert) {
 
 tape('low to high for x, high to low for y', function(assert) {
   var result = [];
-  for (var p of alp([0, 10], [10, 0], 1)) {
+  var opts = {
+    points: [[0, 10], [10, 0]],
+    stride: 1
+  };
+  for (var p of alp(opts)) {
     result.push(p.join('|'));
   }
   result = result.join(',');
@@ -55,7 +75,11 @@ tape('low to high for x, high to low for y', function(assert) {
 
 tape('lots of x, little y, small to big', function(assert) {
   var result = [];
-  for (var p of alp([0, 0], [15, 1], 1)) {
+  var opts = {
+    points: [[0, 0], [15, 1]],
+    stride: 1
+  };
+  for (var p of alp(opts)) {
     result.push(p.map(v => Math.floor(v+.5)).join('|'));
   }
   result = result.join(',');
@@ -65,7 +89,11 @@ tape('lots of x, little y, small to big', function(assert) {
 
 tape('lots of y, little x, small to big', function(assert) {
   var result = [];
-  for (var p of alp([0, 0], [1, 15], 1)) {
+  var opts = {
+    points: [[0, 0], [1, 15]],
+    stride: 1
+  };
+  for (var p of alp(opts)) {
     result.push(p.map(v => Math.floor(v+.5)).join('|'));
   }
   result = result.join(',');
