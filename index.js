@@ -1,6 +1,6 @@
 module.exports = function* (opts) {
   var maxStep = opts.stride || 1;
-  var hook = opts.hook || function(n) { return n; };
+  var transform = opts.transform || function(n) { return n; };
 
   var last = null;
 
@@ -19,7 +19,7 @@ module.exports = function* (opts) {
     var sc = Math.floor(dc/maxStep);
 
     for (var i=0; i<sc; i++) {
-      var next = hook([vx, vy]);
+      var next = transform([vx, vy]);
       if (next.join('|') !== last) {
         yield next;
         last = next.join('|');
@@ -31,7 +31,7 @@ module.exports = function* (opts) {
     p1 = p2;
   }
 
-  var next = hook([].concat(p2));
+  var next = transform([].concat(p2));
   if (next.join('|') !== last) {
     yield next;
   }

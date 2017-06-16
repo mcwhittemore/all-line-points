@@ -2,11 +2,11 @@ var tape = require('tape');
 
 var alp = require('../');
 
-tape('confirm custom hook works', function(assert) {
+tape('confirm custom transform works', function(assert) {
   var opts = {
     points: [[2,0],[0,2]],
     stride: .3,
-    hook: function(n) { return n.map(Math.floor); }
+    transform: function(n) { return n.map(Math.floor); }
   };
   var expected = [
     [ 2, 0 ],
