@@ -1,7 +1,7 @@
 {
   "name": "all-line-points",
   "description": "Get all the points on a line that you want to get.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "directories": {
     "test": "test"
