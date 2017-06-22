@@ -5,27 +5,23 @@ module.exports = function* (opts) {
   var last = null;
 
   var p1 = opts.points[0];
-  var vx = p1[0];
-  var vy = p1[1];
+  var dims = opts.points[0].map(v => v);
   var p2 = null;
   for (var p=1; p<opts.points.length; p++) {
     p2 = opts.points[p];
-    var dx = p2[0] - p1[0];
-    var dy = p2[1] - p1[1];
-    var dc = Math.sqrt((dx*dx)+(dy*dy));
+    var dist = p1.map((v, i) => p2[i] - v);
+    var distTotal = dist.reduce((m, v) => Math.sqrt((m*m)+(v*v)));
 
-    var sx = (dx/dc) * maxStep;
-    var sy = (dy/dc) * maxStep;
-    var sc = Math.floor(dc/maxStep);
+    var steps = dist.map(v => (v/distTotal) * maxStep);
+    var sc = Math.floor(distTotal/maxStep);
 
     for (var i=0; i<sc; i++) {
-      var next = transform([vx, vy]);
+      var next = transform(dims);
       if (next.join('|') !== last) {
         yield next;
         last = next.join('|');
       }
-      vx += sx;
-      vy += sy;
+      dims = dims.map((v, i) => v+steps[i]);
     }
 
     p1 = p2;

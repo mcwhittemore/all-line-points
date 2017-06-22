@@ -43,7 +43,7 @@ for (var p of alp(opts)) {
 
 ### points: {Array[Array[Number]]}
 
-This is an array of [x, y] arrays. Consecutive duplicated points will be skipped.
+This is an array of [x, y, ...] arrays. Consecutive duplicated points will be skipped. The inner array must have at least one value and all inner arrays MUST have the same length.
 
 ### stide: {Number}
 
